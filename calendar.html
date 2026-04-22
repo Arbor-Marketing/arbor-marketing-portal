@@ -1,0 +1,1814 @@
+this
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARBOR Marketing Calendar 2026</title>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI',sans-serif}</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const {
+  useState
+} = React;
+const PILLARS = [{
+  id: "dtc",
+  label: "Direct to Consumer",
+  color: "#2563EB",
+  bg: "#EFF6FF",
+  border: "#BFDBFE"
+}, {
+  id: "recruiting",
+  label: "Recruiting",
+  color: "#EA580C",
+  bg: "#FFF7ED",
+  border: "#FED7AA"
+}, {
+  id: "referral",
+  label: "Referral Partner Growth (The CODE)",
+  color: "#16A34A",
+  bg: "#F0FDF4",
+  border: "#BBF7D0"
+}, {
+  id: "lo",
+  label: "LO to Consumer",
+  color: "#7C3AED",
+  bg: "#F5F3FF",
+  border: "#DDD6FE"
+}, {
+  id: "bop",
+  label: "Best Offer Package",
+  color: "#c0106f",
+  bg: "#FDF0F8",
+  border: "#f9c0e0"
+}];
+const MONTHS = ["Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const MIDX = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+const EVENTS = [{
+  id: "lf1",
+  label: "🎪 Lender Fair Q1",
+  date: "3.11.26",
+  month: 2,
+  color: "#0891B2"
+}, {
+  id: "lf2",
+  label: "🎪 Lender Fair Q2",
+  date: "6.17.26",
+  month: 5,
+  color: "#0891B2"
+}, {
+  id: "lf3",
+  label: "🎪 Lender Fair Q3",
+  date: "9.16.26",
+  month: 8,
+  color: "#0891B2"
+}, {
+  id: "rw1",
+  label: "🎙️ Recruiting Webinar",
+  date: "4.21.26",
+  month: 3,
+  color: "#DB2777"
+}, {
+  id: "rw2",
+  label: "🎙️ Recruiting Webinar",
+  date: "7.7.26",
+  month: 6,
+  color: "#DB2777"
+}, {
+  id: "rw3",
+  label: "🎙️ Recruiting Webinar",
+  date: "10.6.26",
+  month: 9,
+  color: "#DB2777"
+}, {
+  id: "rw4",
+  label: "🎙️ Recruiting Webinar",
+  date: "11.10.26",
+  month: 10,
+  color: "#DB2777"
+}, {
+  id: "ms1",
+  label: "🏆 Mastermind Summit LV",
+  date: "6.24–6.26.26",
+  month: 5,
+  color: "#B45309"
+}];
+const DELIVERABLES = ["Creative Brief", "Flyer / Print Collateral", "Email Sequence", "SMS / Text Campaign", "Social Posts (Organic)", "Paid Ads — Google", "Paid Ads — Meta/Facebook", "Paid Ads — LinkedIn", "Landing Page Copy", "Analytics & Tracking Setup"];
+const STATUS_COLORS = {
+  active: {
+    bg: "#D1FAE5",
+    text: "#065F46",
+    label: "Active"
+  },
+  planning: {
+    bg: "#FEF3C7",
+    text: "#92400E",
+    label: "Planning"
+  },
+  complete: {
+    bg: "#DBEAFE",
+    text: "#1E40AF",
+    label: "Complete"
+  },
+  paused: {
+    bg: "#F3F4F6",
+    text: "#6B7280",
+    label: "Paused"
+  }
+};
+const CAMPAIGNS = [
+// ── ALL ROADS LEAD TO ARBOR (flagship — fully built) ──────────────────────
+{
+  id: "c_allroads",
+  pillar: "recruiting",
+  title: "All Roads Lead to ARBOR",
+  subtitle: "Flagship LO + Branch Manager Recruiting Campaign",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "9-month flagship recruiting campaign built on a single ownable road/journey metaphor. Every LO and Branch Manager is at a crossroads — ARBOR is the destination for those ready to stop settling. Runs April through December 2026 across LinkedIn, Meta, Google Search, email nurture, webinar funnel, and organic content.",
+  status: "active",
+  lead: "Oliver & James",
+  hook: "\"At every intersection, there's a choice. Choose the road that leads to ARBOR.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": true,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Paid Ads — LinkedIn": true,
+    "Landing Page Copy": true,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [{
+    task: "🚫 BLOCKING — Webinar date & time required before landing page can go live",
+    owner: "Ryan O'Kane / Marketing",
+    done: false
+  }, {
+    task: "🚫 BLOCKING — Consumer direct ad creative not yet built (GPS retargeting, search, video)",
+    owner: "Creative Team",
+    done: false
+  }, {
+    task: "🚫 BLOCKING — Internal culture assets not yet created (Mileage Report, leaderboard, Road Trip)",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "🚫 BLOCKING — UTM links not yet applied to Growth Network email + SMS CTAs",
+    owner: "Marketing",
+    done: false
+  }, {
+    task: "🔴 HIGH — Referral confirmation auto-reply email not yet written",
+    owner: "Marketing",
+    done: false
+  }, {
+    task: "🔴 HIGH — HUB program page not yet built",
+    owner: "Marketing / Tech",
+    done: false
+  }, {
+    task: "🔴 HIGH — Webinar landing page registration form not yet live (arborfg.com/which-road)",
+    owner: "Marketing / Tech",
+    done: false
+  }, {
+    task: "🟡 MEDIUM — Pipeline tracker spreadsheet for Growth Network not yet created",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "🟢 LOW — LO testimonial quotes for future campaign iterations (optional)",
+    owner: "Jessica Brody",
+    done: false
+  }],
+  builtAssets: ["10-Slide LO Recruiting Pitch Deck (road metaphor + Five Roads framework)", "Ad & Messaging Copy Doc — LO, BM, consumer headlines, video scripts, billboard", "Full 12-Section Campaign Brief (DOCX) — USP, hooks, landing pages, SEO, email, video", "7 Social Ads — 3 LinkedIn (LO + BM) + 4 Meta (video, carousel, consumer)", "4 Google Ad Campaigns — brand search, purchase intent, refinance, consumer", "4 Meta Ad Campaigns — awareness, webinar conversion, GPS retarget, first-time buyer", "5-Email Post-Webinar Nurture Sequence (full copy)", "Landing Page Copy — arborfg.com/which-road (webinar) + arborfg.com/join (LO inquiry)", "9-Month SEO Content Calendar (Apr–Dec 2026) + keyword strategy", "Creative Brief — 6 executions across video, static, carousel, OOH", "Ryan O'Kane Anchor Quote (verbatim — approved for all use)", "The Five Roads Framework (LO segmentation tool)", "Brand Tone & Style Guide — voice principles, writing rules, color system", "ARBOR Growth Network Internal Referral Campaign (full build — separate campaign)"]
+},
+// ── BUILT BEFORE YOU ARIVE ─────────────────────────────────────────────────
+{
+  id: "c_toolkit",
+  pillar: "recruiting",
+  title: "Built Before You ARIVE",
+  subtitle: "Evergreen LO Recruiting — ARBOR Platform Ecosystem",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Evergreen, always-on campaign converting prospective LOs by showcasing the full ARBOR ecosystem (ARIVE, EiOS, Best Offer Package, 150+ Realtor campaigns + flyers) — all built and ready before Day 1. Runs alongside All Roads Lead to ARBOR. Webinar sessions: Apr 21, Jul 7, Oct 6, Nov 10.",
+  status: "active",
+  lead: "Jessica Brody",
+  hook: "\"The day you ARIVE, 150 Realtor touchpoints are already running.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": true,
+    "Email Sequence": true,
+    "SMS / Text Campaign": true,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Paid Ads — LinkedIn": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [{
+    task: "✅ Webinar registration URL / calendar booking link added (outlook.office.com/book/ArborFinancialGroup...)",
+    owner: "Marketing",
+    done: true
+  }, {
+    task: "🔴 BLOCKING — Real LO testimonial quotes (3 minimum)",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "🔴 BLOCKING — Best Offer Package platform screenshot",
+    owner: "Tech / Product",
+    done: false
+  }, {
+    task: "Jessica Brody headshot (hi-res)",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "Paid ad creative designed (Photoshop briefs ready)",
+    owner: "Designer",
+    done: false
+  }, {
+    task: "Email sequence loaded in CRM",
+    owner: "Marketing",
+    done: false
+  }, {
+    task: "UTM parameters applied to all CTAs",
+    owner: "Marketing",
+    done: false
+  }],
+  builtAssets: ["Campaign Strategy & Brief — Goal, audience, hook, key messages, evergreen framework", "5-Email Sequence — Full body copy · Days 1, 4, 8, 14, 21 · From Jessica Brody", "4-Text SMS Sequence — All copy written · Days 1, 5, 10, 18", "Google Ads — 3 Ad Sets — Headlines, descriptions, keywords · Evergreen angles", "Meta Ads — 4 Ads — Awareness, BOP, Webinar Promo, Retargeting · Full copy", "LinkedIn Ads — 3 ad formats — Sponsored Content (Awareness), Sponsored Content (Webinar Promo × 4 dates), Message Ad/InMail · Full copy + targeting specs + notes", "Social Posts — 3 Platforms — LinkedIn (3), Facebook (2), Instagram (2) · Evergreen + session-triggered", "Photoshop Creative Briefs — Production-ready specs for all 8 Meta + 5 Google Display sizes", "Existing Flyer Asset — 150+ Realtor Touchpoints flyer — ready to adapt for Ad 1"]
+},
+// ── ARBOR GROWTH NETWORK ───────────────────────────────────────────────────
+{
+  id: "c_growth",
+  pillar: "recruiting",
+  title: "ARBOR Growth Network",
+  subtitle: "Internal Referral Initiative",
+  months: [3, 4, 5],
+  description: "Activate existing ARBOR LOs to refer high-quality, culturally aligned LOs from their networks through a structured, clean process.",
+  status: "planning",
+  lead: "Jessica Brody",
+  hook: "\"If you've ever thought, 'They would crush it here.' — Now there's a process.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": true,
+    "Email Sequence": true,
+    "SMS / Text Campaign": true,
+    "Analytics & Tracking Setup": true
+  },
+  openItems: [{
+    task: "Campaign Launch Flyer",
+    owner: "Designer",
+    done: true
+  }, {
+    task: "Referral Confirmation Email (auto-reply)",
+    owner: "Jessica Brody",
+    done: true
+  }, {
+    task: "HUB Program Page",
+    owner: "Marketing / Tech",
+    done: true
+  }, {
+    task: "UTM links applied to email + SMS CTAs",
+    owner: "Marketing",
+    done: false
+  }, {
+    task: "Pipeline Tracker Spreadsheet created",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "Email sequence loaded in CRM",
+    owner: "Marketing",
+    done: false
+  }, {
+    task: "LO Testimonial Quotes (optional)",
+    owner: "Jessica Brody",
+    done: false
+  }],
+  builtAssets: ["Campaign Strategy & Brief", "4-Email Sequence (full copy)", "4-Text SMS Sequence", "Incentive Policy (Tier 1/2/3 + Portfolio Bonus)", "HUB Referral Form (live at form.fillout.com/t/4yg1FruqRNus)", "FAQ Document", "Analytics Framework + UTM Links", "Campaign Launch Flyers (FAQ flyer + Internal Referral flyer)"]
+},
+// ── EiOS — THE SHOULD'ER CAMPAIGN ──────────────────────────────────────────
+{
+  id: "c_eios",
+  pillar: "recruiting",
+  title: "The Should'er Campaign",
+  subtitle: "EiOS Platform Launch — Full-Funnel Awareness & Demo",
+  color: "#038DF9",
+  colorAccent: "#26F5A3",
+  bg: "#EBF8FF",
+  border: "#B8E8FF",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "90-day, 3-phase full-funnel campaign launching EiOS (Everything in One Spot) to Loan Officers. Phase 1: Awareness — 'Work is Broken' (Days 1–30). Phase 2: Education — 'We Fixed It' (Days 31–60). Phase 3: Conversion — 'See It in Action' (Days 61–90). Channels: Meta (FB/IG), Google Search + Display, Organic Social (IG + LinkedIn), 7-Email Nurture. CTA: eios.io demo booking.",
+  status: "active",
+  lead: "Hannah Gibson",
+  hook: "\"Your 'Shoulds' Are Now 'Dones.' — EiOS automates everything a Loan Officer should be doing, without lifting a finger.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": true,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [{
+    task: "🚫 BLOCKING — Demo booking URL / destination at eios.io not yet confirmed",
+    owner: "Tech / Product or Marketing",
+    done: false
+  }, {
+    task: "🚫 BLOCKING — Real LO testimonials needed (3–5 minimum for Phase 3 ads + Day 16 email)",
+    owner: "Jessica Brody",
+    done: false
+  }, {
+    task: "🔴 HIGH — EiOS platform screenshots / GIFs for feature education assets",
+    owner: "Tech / Product",
+    done: false
+  }, {
+    task: "✅ EiOS logo files + brand guide confirmed — EiOS-01.png, EiOS-02.png, and EiOS Brand Guide PDF now in Brand Assets folder",
+    owner: "Hannah Gibson",
+    done: true
+  }, {
+    task: "🔴 HIGH — Compliance review of paid ad copy (Glen Duvel) — flag: $175/month mention",
+    owner: "Glen Duvel (glend@arborfg.com)",
+    done: false
+  }, {
+    task: "Instagram @eios.io account — confirm Meta Business Manager linkage for paid setup",
+    owner: "Hannah Gibson / Marketing",
+    done: false
+  }, {
+    task: "UTM parameter structure built and applied to all paid + email CTAs",
+    owner: "Hannah Gibson / Marketing Ops",
+    done: false
+  }],
+  builtAssets: [
+    "Campaign Strategy & 3-Phase Brief — Awareness / Education / Conversion framework",
+    "EiOS Brand Assets — Brand guide PDF + EiOS logo images (EiOS-01.png, EiOS-02.png) confirmed in Brand Assets folder",
+    "Designed Social Asset Suite — 12 feed posts (1080×1350), 15 carousel slides across 3 carousels, 37 story slides (12 story sets) — all produced PNGs in EiOS_Campaign_Assets/01_Social_Posts",
+    "Designed Meta Ad Creatives — 10 ads produced: 3 feed (1080×1080), 2 landscape (1200×628), 5-slide carousel (1080×1080), 2 story (1080×1920) — PNGs in EiOS_Campaign_Assets/02_Meta_Ads",
+    "Designed Google Display Banners — 5 banner sizes produced: GD-01 half-page (300×600), GD-01 med-rect (300×250), GD-02 billboard (970×250), GD-02 leaderboard (728×90), GD-02 skyscraper (160×600) — PNGs in EiOS_Campaign_Assets/03_Google_Ads",
+    "Meta Ads — 6 ads across 3 phases (MA-01 through MA-06) · Full copy + specs",
+    "Google Search Campaign — 4 ad groups, RSA headlines + descriptions, keyword lists",
+    "Google Display Campaign — 2 ad units (GD-01, GD-02) · 5 size variants",
+    "Organic Social — 12-post library across Instagram + LinkedIn · Full captions, Stories, hashtags",
+    "7-Email Nurture Sequence — Days 1, 3, 5, 8, 12, 16, 21 · Awareness to demo conversion",
+    "Messaging Framework — Campaign line, awareness/education/conversion hooks, value prop ranking",
+    "Asset Delivery Checklist — All 25+ assets spec'd with dimensions, channel, phase, status"
+  ]
+},
+// ── OTHER CAMPAIGNS ────────────────────────────────────────────────────────
+{
+  id: "c_homebuyer",
+  pillar: "dtc",
+  title: "This Is Your Season",
+  subtitle: "Spring Homebuyer Campaign",
+  months: [3, 4, 5],
+  description: "26-post social campaign targeting first-time and move-up buyers across the spring buying season. Covers loan education, pre-approval power, competitive offer strategy, and closing confidence. Runs April–June 2026 with Google, Meta, and organic social.",
+  status: "active",
+  lead: "Hannah G.",
+  hook: "\"Spring is the busiest home-buying season. ARBOR is the calm, expert guide that makes you the most prepared buyer in the room.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": false,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "Pre-approval CTA landing page URL", owner: "Marketing", done: false },
+    { task: "Lifestyle photography — spring home buying (diverse, authentic)", owner: "Creative / Stock", done: false },
+    { task: "90-Day Buyer Checklist PDF — downloadable lead magnet", owner: "Marketing", done: false },
+    { task: "Motion graphics produced for Reel posts (no presenter needed)", owner: "Designer / Video", done: false },
+    { task: "Social content calendar loaded to scheduler (2x/week Apr–Jun)", owner: "Marketing", done: false },
+    { task: "UTM parameters applied to all CTAs", owner: "Marketing", done: false }
+  ],
+  builtAssets: ["Campaign Strategy & Brief — goal, audience, hook, brand guidelines", "Social Content Calendar — 26 posts · Apr 1–Jun 28 · Full captions, format, platform", "Google Ads — 3 Ad Sets (first-time buyer, spring market, retargeting)", "Meta Ads — 4 Ads (brand awareness, myth-buster, social proof, retargeting)", "Creative Briefs — specs for all social formats + Meta canvases + Google Display", "ARBOR-Spring2026-Designer-Brief-v2.pdf — Production-ready designer brief for all campaign asset specs", "ARBOR-Spring2026-Asset-Brief.docx — Campaign asset brief added March 2026"]
+},
+{
+  id: "c_rateconv",
+  pillar: "dtc",
+  title: "The Rate Conversation",
+  subtitle: "Summer Education + Refi Campaign",
+  months: [6, 7, 8],
+  description: "14-post education-first campaign cutting through market noise for active buyers and homeowners. Covers fixed vs. ARM, APR vs. rate, cash-out refi, home equity, and the 'right time to buy' question. Runs July–September 2026 with Google, Meta, and organic social. No specific rate quotes.",
+  status: "planning",
+  lead: "Hannah G.",
+  hook: "\"Everyone has questions about the mortgage market. ARBOR gives you real answers — not headlines.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": false,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "Mortgage education landing page or hub — URL confirmed", owner: "Marketing / Tech", done: false },
+    { task: "Motion graphics produced for Reel posts (animated explainers)", owner: "Designer / Video", done: false },
+    { task: "Real homeowner/refi-focused testimonials (2 posts have placeholders)", owner: "Marketing / Client Relations", done: false },
+    { task: "Social content calendar loaded to scheduler (2x/week Jul–Sep)", owner: "Marketing", done: false },
+    { task: "UTM parameters applied to all CTAs", owner: "Marketing", done: false }
+  ],
+  builtAssets: ["Campaign Strategy & Brief — goal, audience, hook, education framework", "Social Content Calendar — 14 posts · Jul 1–Sep 6 · Full captions, format, platform", "Google Ads — 3 Ad Sets (mortgage education, refinance, retargeting)", "Meta Ads — 4 Ads (brand story, process transparency, refi education, retargeting)", "Creative Briefs — specs for all social formats + Meta canvases + Google Display"]
+},
+{
+  id: "c_holidays",
+  pillar: "dtc",
+  title: "Home for the Holidays",
+  subtitle: "Q4 Pipeline Builder — Spring 2027",
+  months: [9, 10, 11],
+  description: "13-post Q4 campaign building spring 2027 pipeline through early-start education and emotional brand content. Covers the 90-day head start guide, credit prep, DTI education, rent vs. own, and a New Year 2027 CTA push. Runs October–December 2026.",
+  status: "planning",
+  lead: "Hannah G.",
+  hook: "\"The buyers who win in spring started in October. ARBOR helps you get ready — before the rush.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": false,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "90-Day Head Start Guide PDF — built and downloadable", owner: "Marketing", done: false },
+    { task: "Fall/winter lifestyle photography (home, family, seasonal warmth)", owner: "Creative / Stock", done: false },
+    { task: "Real buyer testimonials — 2 posts still have placeholders (Oct 25, Nov 11)", owner: "Marketing / Client Relations", done: false },
+    { task: "Social content calendar loaded to scheduler (2x/week Oct–Dec)", owner: "Marketing", done: false },
+    { task: "Re-engagement list pulled — 2026 inquiries that didn't close", owner: "CRM Admin", done: false },
+    { task: "UTM parameters applied to all CTAs", owner: "Marketing", done: false }
+  ],
+  builtAssets: ["Campaign Strategy & Brief — goal, audience, hook, Q4 pipeline strategy", "Social Content Calendar — 13 posts · Oct 7–Dec 10 · Full captions, format, platform", "Google Ads — 3 Ad Sets (spring planning, New Year goal, retargeting)", "Meta Ads — 4 Ads (head start, emotional brand, New Year CTA, year-end retargeting)", "Creative Briefs — specs for all social formats + Meta canvases + Google Display"]
+}, {
+  id: "c4",
+  pillar: "referral",
+  title: "The CODE — Partner Activation",
+  months: [3, 4, 5, 6, 7, 8],
+  description: "Referral partner outreach, onboarding, and co-marketing push.",
+  status: "planning",
+  lead: "",
+  hook: "",
+  deliverables: Object.fromEntries(DELIVERABLES.map(d => [d, false])),
+  openItems: [],
+  builtAssets: []
+}, {
+  id: "c5",
+  pillar: "lo",
+  title: "LO Client Nurture Series",
+  subtitle: "Active Leads + Past Clients · 12-Month Evergreen",
+  months: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Always-on, 12-month evergreen nurture campaign for Loan Officers across two tracks: Active Leads (6 emails + 4 SMS over 90 days, converting inquiry to pre-approval) and Past Clients (5 emails + 4 SMS over 12 months, driving referrals and repeat business). Supplemented by 6 ARBOR-branded social posts (Facebook/Instagram + Stories) and 4 direct mail pieces (3 × 8.5×11 flyers + 1 referral postcard). Campaign philosophy: stay present without being pushy — add value before asking for anything.",
+  status: "active",
+  lead: "Hannah Gibson",
+  hook: "\"Stay present without being pushy. Add value before asking for anything.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": true,
+    "Email Sequence": true,
+    "SMS / Text Campaign": true,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": false,
+    "Paid Ads — Meta/Facebook": false,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "LO calendar booking link — to be populated per LO", owner: "Marketing / LO", done: false },
+    { task: "LO personal page URLs — for QR code generation on print pieces", owner: "Marketing", done: false },
+    { task: "🚫 BLOCKING — CRM trigger setup — post-close date tracking for anniversary sequences", owner: "Marketing / Tech", done: false },
+    { task: "Stories automation setup — DM trigger from poll responses", owner: "Marketing / Tech", done: false },
+    { task: "Print vendor selection — 3 × 8.5×11 flyers + 1 postcard production", owner: "Marketing / Designer", done: false },
+    { task: "Social graphics production — milestone, equity, culture templates", owner: "Designer", done: false },
+    { task: "🚫 BLOCKING — NMLS disclosure verified for all print and digital pieces", owner: "Compliance / Marketing", done: false },
+    { task: "🚫 BLOCKING — Email sequence loaded into CRM per track (active leads + past clients)", owner: "Marketing", done: false }
+  ],
+  builtAssets: [
+    "Active Lead Email Sequence — 6 emails · Days 1, 4, 10, 21, 45, 90 · Education-first, no pressure · Full body copy written",
+    "Past Client Email Sequence — 5 emails · Months 1, 3, 6, 9, 12 · Relationship-first, referral-building · Full body copy written",
+    "Active Lead SMS Sequence — 4 texts · Days 2, 7, 30, 60 · Casual, direct, respectful of timeline · Full copy written",
+    "Past Client SMS Sequence — 4 texts · Months 1, 6, 9, 12 · Celebratory, warm, genuine · Full copy written",
+    "Social Posts — 6 posts · Facebook/Instagram (4) + Instagram Stories (2) · Education-first, no rate language · Full captions + production notes",
+    "Direct Mail — Welcome Home Post-Close Flyer (8.5×11) · Full copy + design specs · Mail within 2 weeks of close",
+    "Direct Mail — Home Equity Awareness Annual Flyer (8.5×11) · Full copy + design specs · 12-month anniversary trigger",
+    "Direct Mail — Stay Ready Active Lead Nurture Flyer (8.5×11) · Full copy + design specs · 90-day interval mailing",
+    "Direct Mail — Stay in Touch Referral Postcard (5.5×4.25) · Full copy + design specs · 9-month post-close",
+    "Interactive campaign dashboard (LO_Client_Nurture_Series.jsx) — tabbed UI: Summary, Email Sequences, SMS Sequences, Social Posts, Direct Mail, Open Items checklist"
+  ]
+},
+// ── BRAND AWARENESS — EVERGREEN PAID ADS ───────────────────────────────────
+{
+  id: "c_brandawareness",
+  pillar: "recruiting",
+  title: "Brand Awareness — Evergreen Paid Ads",
+  subtitle: "Always-On LO Recruiting · Meta + LinkedIn",
+  months: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Always-on evergreen paid advertising targeting Loan Officers and Branch Managers on Meta (Facebook/Instagram) and LinkedIn. Independent of seasonal campaigns — runs continuously to maintain brand visibility and drive top-of-funnel recruiting interest. 11 ad units across 4 creative directions: feature ads, performance ads, and retargeting. CTA: Book a Call with Jessica Brody.",
+  status: "planning",
+  lead: "Hannah Gibson",
+  hook: "\"Freedom to produce. Infrastructure to scale. One platform — 150+ lenders, zero ceilings.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": false,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": false,
+    "Paid Ads — Google": false,
+    "Paid Ads — Meta/Facebook": true,
+    "Paid Ads — LinkedIn": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "🚫 BLOCKING — Ad creative designed (production files) for all 11 ad units", owner: "Designer", done: false },
+    { task: "🔴 HIGH — LinkedIn carousel (6 slides) designed and approved", owner: "Designer", done: false },
+    { task: "🔴 HIGH — Compliance review of all ad copy — flag: $175/month mention in PA-02", owner: "Glen Duvel (glend@arborfg.com)", done: false },
+    { task: "Meta Business Manager campaigns set up and ad sets configured", owner: "Marketing", done: false },
+    { task: "LinkedIn Campaign Manager campaigns set up", owner: "Marketing", done: false },
+    { task: "UTM parameters applied to all CTA booking links", owner: "Marketing", done: false },
+    { task: "Audience targeting defined — LO job titles, ages 28–55, geographies", owner: "Marketing", done: false },
+    { task: "Retargeting pixel confirmed on arborfg.com/join and booking page", owner: "Marketing / Tech", done: false }
+  ],
+  builtAssets: [
+    "Recruiting_Paid_Ads_Creative_Brief_Evergreen.docx — Full creative brief: brand standards, typography, logo rules, NMLS compliance, and complete ad copy for all 11 units",
+    "Feature Ads (3) — FA-01 'Calling All Loan Officers', FA-02 'More Products. More Closings. More Control.', FA-03 'Built for LOs Who Think Like Business Owners' · Meta 1080×1080 + LinkedIn 1200×627 · Copy written",
+    "Performance Ads (4) — PA-01 'Your Pipeline Is Outgrowing Your Platform', PA-02 'Do You Know What Your Platform Is Costing?', PA-03 Platform Transparency, PA-04 'You've Outgrown Your Platform' · Copy written",
+    "Retargeting Ads (2) — RT-01 'Something Caught Your Attention' (Meta 1080×1080), RT-02 I'm Not Actively Looking (LinkedIn 1200×627) · Copy written",
+    "LinkedIn Carousel (6 slides) — Slide 1 Cover, Slide 3 Deal Loss, Slide 6 CTA Close · Copy written · 1080×1080",
+    "Brand Standards — Montserrat 900/700/500, Cyber Green CTA #7CC142, NMLS #236669 + Equal Housing Lender on every asset, booking link on every CTA"
+  ]
+},
+// ── JUST MOVED ──────────────────────────────────────────────────────────────
+{
+  id: "c_justmoved",
+  pillar: "recruiting",
+  title: "Just Moved",
+  subtitle: "Recruiting — Recent Company Changers",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Targeted recruiting campaign aimed at Loan Officers who have recently changed companies. Focuses on LOs still in the transition window — rebuilding their pipeline, re-evaluating their platform, and open to a conversation. Campaign details and creative direction in development.",
+  status: "planning",
+  lead: "",
+  hook: "",
+  deliverables: Object.fromEntries(DELIVERABLES.map(d => [d, false])),
+  openItems: [
+    { task: "Campaign strategy and messaging brief", owner: "Marketing", done: false },
+    { task: "Target audience definition — LOs who changed companies in past 6–12 months", owner: "Marketing", done: false },
+    { task: "Creative brief and ad copy", owner: "Marketing / Designer", done: false },
+    { task: "Channel selection — LinkedIn, Meta, email", owner: "Marketing", done: false }
+  ],
+  builtAssets: []
+},
+// ── MASTERMIND SUMMIT ───────────────────────────────────────────────────────
+{
+  id: "c_mastermind",
+  pillar: "recruiting",
+  title: "Mastermind Summit 2026",
+  subtitle: "Event Promotion — June 24–26 · Bellagio, Las Vegas",
+  months: [4, 5],
+  description: "Pre-event social media promotion campaign for the Mastermind Summit 2026, June 24–26 at the Bellagio Hotel in Las Vegas. ARBOR is attending and promoting the event to LOs and Branch Managers. All posts include RYANOSPK.png (Ryan O'Kane speaker photo), required hashtags, and ticket link. Posting guide covers captions for Instagram, Facebook, and LinkedIn.",
+  status: "active",
+  lead: "Hannah Gibson",
+  hook: "\"Join the most forward-thinking mortgage professionals in the country. June 24–26. Bellagio. Las Vegas.\"",
+  deliverables: {
+    "Creative Brief": false,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": false,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": false,
+    "Paid Ads — Meta/Facebook": false,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": false
+  },
+  openItems: [
+    { task: "Social posts scheduled across Instagram, Facebook, and LinkedIn", owner: "Marketing", done: false },
+    { task: "RYANOSPK.png attached to all posts on all platforms", owner: "Marketing", done: false },
+    { task: "Event page tagged on Facebook and LinkedIn per posting guide", owner: "Marketing", done: false },
+    { task: "Ticket link confirmed live: mastermindsummit.com/tickets", owner: "Marketing", done: false }
+  ],
+  builtAssets: [
+    "MastermindSummit2026_SocialPostingGuide.docx — Complete posting guide: platform notes, required elements (ticket link, hashtags, event tags, image), and full captions for all posts",
+    "RYANOSPK.png — Ryan O'Kane speaker photo · Required on every post · All platforms"
+  ]
+},
+// ── BEST OFFER PACKAGE ──────────────────────────────────────────────────────
+{
+  id: "c_bop",
+  pillar: "bop",
+  title: "Best Offer Package",
+  subtitle: "3-Segment Campaign · Loan Officer · Realtor · Recruiting",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Full 3-segment campaign positioning Best Offer Package across the LO, Realtor, and standalone recruiting audiences. LO segment: 5 paid ads (Meta + LinkedIn), 5-email nurture sequence, and 7 organic social posts — positioning BOP as the Realtor partnership tool that makes LOs impossible to replace. Realtor segment: 3 Meta ads, Google Display retargeting, 1 LO-sent outreach template, and 5 organic social posts — leading with mobile freedom and professional offer presentation. Recruiting segment: BOP as a standalone SaaS product with zero brokerage references — 3 recruiting ads, 5-email LO sequence, and 3-email Realtor sequence driving to bestofferpackage.com/pricing. Campaign line: \"Because you look good, when they look good.\"",
+  status: "active",
+  lead: "Hannah Gibson",
+  hook: "\"Because you look good, when they look good.\"",
+  deliverables: {
+    "Creative Brief": true,
+    "Flyer / Print Collateral": false,
+    "Email Sequence": true,
+    "SMS / Text Campaign": false,
+    "Social Posts (Organic)": true,
+    "Paid Ads — Google": true,
+    "Paid Ads — Meta/Facebook": true,
+    "Paid Ads — LinkedIn": true,
+    "Landing Page Copy": false,
+    "Analytics & Tracking Setup": true
+  },
+  openItems: [
+    { task: "🚫 BLOCKING — NMLS #236669 + Equal Housing Lender on all LO paid deliverables — confirm with Glen Duvel", owner: "Hannah / Glen Duvel", done: false },
+    { task: "🚫 BLOCKING — Verify testimonial commercial use consent (Roger F., Brian D., Jennifer M., Susan I.) before any ad goes live", owner: "Jessica Brody / Marketing", done: false },
+    { task: "🚫 BLOCKING — Confirm BOP pricing accuracy ($8.99 / $22.49 / Free) with BOP team before any recruiting email sends", owner: "Hannah / BOP contact", done: false },
+    { task: "🚫 BLOCKING — Full brokerage reference audit — confirm zero ARBOR mentions in all recruiting assets", owner: "Hannah", done: false },
+    { task: "✅ Brief designer: 3 Meta LO ads (M1, M2, M3) · 1080×1080 + 1080×1350 · BOP Blue + Pink CTA", owner: "Hannah → Designer", done: true },
+    { task: "✅ Brief designer: 2 LinkedIn LO ads (LI1, LI2) · 1200×627 + 1080×1080", owner: "Hannah → Designer", done: true },
+    { task: "✅ Brief designer: 3 Meta Realtor ads (RA-M1, M2, M3) · BOP Pink CTA", owner: "Hannah → Designer", done: true },
+    { task: "✅ Brief designer: Google Display Realtor retargeting banners · 5 sizes", owner: "Hannah → Designer", done: true },
+    { task: "✅ Brief designer: 2 LO + 1 Realtor recruiting ads · BOP Blue only · No ARBOR branding", owner: "Hannah → Designer", done: true },
+    { task: "🔴 HIGH — Brief designer: 7 LO organic social templates + 5 Realtor organic social templates", owner: "Hannah → Designer", done: false },
+    { task: "Load 5-email LO nurture sequence into CRM — trigger: BOP inquiry", owner: "Marketing", done: false },
+    { task: "Configure send-as for Jessica Brody on LO email sequence (required for Email 5)", owner: "Marketing / IT", done: false },
+    { task: "Set up BOP-branded email sender for recruiting sequences (separate from ARBOR/Jessica Brody)", owner: "Marketing / IT", done: false },
+    { task: "Load Realtor outreach email template (R1) into CRM for LO deployment", owner: "Marketing / Jessica Brody", done: false },
+    { task: "Load 5-email LO recruiting sequence + 3-email Realtor recruiting sequence into CRM", owner: "Marketing", done: false },
+    { task: "Schedule 7 LO + 5 Realtor organic social posts — LinkedIn, Facebook, Instagram", owner: "Marketing", done: false },
+    { task: "✅ Confirm UTM structure for all 3 segments — separate tracking per segment · BOP_UTM_Links.pdf delivered", owner: "Marketing", done: true },
+    { task: "🔴 HIGH — Launch Meta LO ads — creative ready · $800/mo", owner: "Marketing / Paid Media", done: false },
+    { task: "🔴 HIGH — Launch LinkedIn LO ads — creative ready · $700/mo", owner: "Marketing / Paid Media", done: false },
+    { task: "🔴 HIGH — Launch Meta Realtor ads — creative ready · $600/mo", owner: "Marketing / Paid Media", done: false },
+    { task: "🔴 HIGH — Launch Google Display Realtor retargeting — creative ready · $500/mo", owner: "Marketing / Paid Media", done: false }
+  ],
+  builtAssets: [
+    "Campaign Dashboard (HTML) — Full 3-segment interactive dashboard with Strategy, Paid Ads, Email, Organic Social, and Checklist tabs per segment · Saved in 07 — Best Offer Package",
+    "LO Segment — 5 Paid Ad Units: 3 Meta (M1 Partnership Hook, M2 Differentiator, M3 FOMO) + 2 LinkedIn (LI1 Professional Value, LI2 ARBOR Tie-In) · Full copy written",
+    "LO Segment — 5-Email Nurture Sequence: Day 0 Intro, Day 4 Pain, Day 8 Social Proof, Day 14 Platform Bridge, Day 30 Re-engage · Full copy written · From Jessica Brody",
+    "LO Segment — 7 Organic Social Posts: LinkedIn + Facebook · Static, Stat Card, Carousel (5-frame), Thought Leadership, Testimonial Quote, Poll, ARBOR Platform Tie-In · Full copy written",
+    "Realtor Segment — 3 Meta Paid Ads: RA-M1 Weekend Freedom, RA-M2 Listing Agent Impression, RA-M3 Testimonial · Full copy written",
+    "Realtor Segment — Google Display Retargeting: 3 headline/description sets · 5 standard sizes (728×90, 300×250, 336×280, 300×600, 970×250)",
+    "Realtor Segment — LO-Sent Email Outreach Template (R1) · New partner intro · Full copy written",
+    "Realtor Segment — 5 Organic Social Posts: Instagram + Facebook · Static, Testimonial Card, Carousel (4-frame), Quote Card, Educational · Full copy written",
+    "Recruiting Segment (BOP Standalone, no brokerage reference) — 5-Email LO Sequence: Day 0, 4, 9, 15, 30 · Full copy written",
+    "Recruiting Segment — 3-Email Realtor Sequence: Day 0, 5, 12 · Full copy written",
+    "Recruiting Segment — 3 Ad Units: REC-LO1 Free Trial Hook, REC-LO2 Pain/Outcome, REC-RA1 Free Account · Full copy written",
+    "Pricing Framework — LO Essential $8.99/mo (10 Realtors), LO Premium $22.49/mo (25 Realtors), Realtor always free · Messaging rules doc included",
+    "FINAL CREATIVE — LO Meta Ads: 3 variants (A/B/C) × M1, M2, M3 messages × 1080×1080 + 1080×1350 · 60 files · Ready to launch",
+    "FINAL CREATIVE — LO LinkedIn Ads: 3 variants (A/B/C) × LI1, LI2 + M1, M2, M3 messages × 1080×1080 + 1200×627 · 30 files · Ready to launch",
+    "FINAL CREATIVE — LO Google Display Ads: 3 variants (A/B/C) × 5 standard sizes (300×250, 300×600, 336×280, 728×90, 970×250) · 15 files · Ready to launch",
+    "FINAL CREATIVE — Realtor Meta Ads: 3 variants (A/B/C) × LI1, LI2 + M1, M2, M3 messages × 1080×1080 + 1080×1350 · 30 files · Ready to launch",
+    "FINAL CREATIVE — Realtor LinkedIn Ads: 3 variants (A/B/C) × LI1, LI2 + M1, M2, M3 messages × 1080×1080 + 1200×627 · 30 files · Ready to launch",
+    "FINAL CREATIVE — Realtor Google Display Ads: 3 variants (A/B/C) × 5 standard sizes · 15 files · Ready to launch",
+    "UTM Links — BOP_UTM_Links.pdf · All 3 segments tracked · Delivered 4.3.26"
+  ]
+},
+// ── WHALE HUNTING ───────────────────────────────────────────────────────────
+{
+  id: "c_whalehunting",
+  pillar: "recruiting",
+  title: "Whale Hunting",
+  subtitle: "High-Volume LO Recruiting — Top Producers",
+  months: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+  description: "Targeted recruiting campaign focused on high-volume, top-producing Loan Officers — LOs doing significant volume who have outgrown their current platform. Precision outreach and positioning strategy targeting producers ready for a platform built at their level. Campaign details and creative direction in development.",
+  status: "planning",
+  lead: "",
+  hook: "",
+  deliverables: Object.fromEntries(DELIVERABLES.map(d => [d, false])),
+  openItems: [
+    { task: "Campaign strategy — define target LO profile (volume threshold, market, tenure)", owner: "Marketing / Leadership", done: false },
+    { task: "Messaging brief — differentiated positioning for top producers vs. general LO recruiting", owner: "Marketing", done: false },
+    { task: "Outreach channel strategy — LinkedIn outbound, paid, direct mail, referral", owner: "Marketing", done: false },
+    { task: "Creative brief and ad copy tailored to top-producer pain points", owner: "Marketing / Designer", done: false }
+  ],
+  builtAssets: []
+}];
+const getPillar = id => PILLARS.find(p => p.id === id);
+const completionPct = c => {
+  const v = Object.values(c.deliverables);
+  return Math.round(v.filter(Boolean).length / v.length * 100);
+};
+const isBuilt = id => ["c_allroads", "c_toolkit", "c_growth", "c_eios", "c_homebuyer", "c_rateconv", "c_holidays", "c_brandawareness", "c_mastermind", "c_bop"].includes(id);
+const campColor = c => c.color || getPillar(c.pillar).color;
+const campBg = c => c.bg || getPillar(c.pillar).bg;
+const campBorder = c => c.border || getPillar(c.pillar).border;
+function App() {
+  const [campaigns, setCampaigns] = useState(CAMPAIGNS);
+  const [selected, setSelected] = useState(null);
+  const [view, setView] = useState("calendar");
+  const [filterPillar, setFilterPillar] = useState("all");
+  const [detailTab, setDetailTab] = useState("overview");
+  const [showAdd, setShowAdd] = useState(false);
+  const [exportMsg, setExportMsg] = useState("");
+  const [newC, setNewC] = useState({
+    title: "",
+    pillar: "dtc",
+    months: [],
+    description: "",
+    status: "planning",
+    lead: ""
+  });
+  const selC = campaigns.find(c => c.id === selected);
+  const filtered = filterPillar === "all" ? campaigns : campaigns.filter(c => c.pillar === filterPillar);
+  const toggleDeliverable = (id, d) => setCampaigns(p => p.map(c => c.id === id ? {
+    ...c,
+    deliverables: {
+      ...c.deliverables,
+      [d]: !c.deliverables[d]
+    }
+  } : c));
+  const toggleOpenItem = (id, idx) => setCampaigns(p => p.map(c => c.id === id ? {
+    ...c,
+    openItems: c.openItems.map((o, i) => i === idx ? {
+      ...o,
+      done: !o.done
+    } : o)
+  } : c));
+  const updateC = (id, field, val) => setCampaigns(p => p.map(c => c.id === id ? {
+    ...c,
+    [field]: val
+  } : c));
+  const addCampaign = () => {
+    if (!newC.title.trim() || !newC.months.length) return;
+    setCampaigns(p => [...p, {
+      ...newC,
+      id: "c" + Date.now(),
+      deliverables: Object.fromEntries(DELIVERABLES.map(d => [d, false])),
+      openItems: [],
+      builtAssets: [],
+      hook: "",
+      subtitle: ""
+    }]);
+    setShowAdd(false);
+    setNewC({
+      title: "",
+      pillar: "dtc",
+      months: [],
+      description: "",
+      status: "planning",
+      lead: ""
+    });
+  };
+  const exportCSV = () => {
+    const rows = [["Campaign", "Pillar", "Lead", "Months", "Status", "Completion %"]];
+    campaigns.forEach(c => rows.push([c.title, getPillar(c.pillar)?.label, c.lead || "—", c.months.map(m => MONTHS[MIDX.indexOf(m)]).join(", "), c.status, completionPct(c) + "%"]));
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([rows.map(r => r.map(x => `"${x}"`).join(",")).join("\n")], {
+      type: "text/csv"
+    }));
+    a.download = "ARBOR_Calendar_2026.csv";
+    a.click();
+    setExportMsg("✅ Exported!");
+    setTimeout(() => setExportMsg(""), 3000);
+  };
+  const detailTabs = selC && isBuilt(selC.id) ? ["overview", "built", "open items"] : ["overview", "deliverables"];
+  return /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontFamily: "'Inter',sans-serif",
+      background: "#F1F5F9",
+      minHeight: "100vh"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "linear-gradient(135deg,#0F172A 0%,#1E3A5F 100%)",
+      padding: "18px 24px",
+      color: "white"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      flexWrap: "wrap",
+      gap: 10
+    }
+  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      letterSpacing: 2,
+      color: "#94A3B8",
+      textTransform: "uppercase",
+      marginBottom: 3
+    }
+  }, "ARBOR Financial Group"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 20,
+      fontWeight: 800
+    }
+  }, "Marketing Calendar 2026"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 11,
+      color: "#94A3B8",
+      marginTop: 1
+    }
+  }, "March \u2014 December \xB7 4 Pillars \xB7 ", campaigns.length, " Campaigns")), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setView("calendar");
+      setSelected(null);
+    },
+    style: {
+      padding: "6px 13px",
+      borderRadius: 6,
+      border: "none",
+      background: view === "calendar" ? "#2563EB" : "#334155",
+      color: "white",
+      cursor: "pointer",
+      fontSize: 12
+    }
+  }, "\uD83D\uDCC5 Calendar"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setView("list"),
+    style: {
+      padding: "6px 13px",
+      borderRadius: 6,
+      border: "none",
+      background: view === "list" ? "#2563EB" : "#334155",
+      color: "white",
+      cursor: "pointer",
+      fontSize: 12
+    }
+  }, "\uD83D\uDCCB Campaigns"), /*#__PURE__*/React.createElement("button", {
+    onClick: exportCSV,
+    style: {
+      padding: "6px 13px",
+      borderRadius: 6,
+      border: "none",
+      background: "#334155",
+      color: "white",
+      cursor: "pointer",
+      fontSize: 12
+    }
+  }, "\uD83D\uDCE4 Export CSV"), /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowAdd(true),
+    style: {
+      padding: "6px 13px",
+      borderRadius: 6,
+      border: "none",
+      background: "#16A34A",
+      color: "white",
+      cursor: "pointer",
+      fontSize: 12,
+      fontWeight: 600
+    }
+  }, "+ Add Campaign"))), exportMsg && /*#__PURE__*/React.createElement("div", {
+    style: {
+      marginTop: 8,
+      fontSize: 12,
+      color: "#86EFAC"
+    }
+  }, exportMsg), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 14,
+      marginTop: 14,
+      flexWrap: "wrap"
+    }
+  }, PILLARS.map(p => /*#__PURE__*/React.createElement("div", {
+    key: p.id,
+    style: {
+      display: "flex",
+      alignItems: "center",
+      gap: 5,
+      cursor: "pointer",
+      opacity: filterPillar !== "all" && filterPillar !== p.id ? 0.4 : 1
+    },
+    onClick: () => setFilterPillar(filterPillar === p.id ? "all" : p.id)
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      width: 10,
+      height: 10,
+      borderRadius: 2,
+      background: p.color
+    }
+  }), /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontSize: 11,
+      color: "#CBD5E1"
+    }
+  }, p.label))), filterPillar !== "all" && /*#__PURE__*/React.createElement("button", {
+    onClick: () => setFilterPillar("all"),
+    style: {
+      fontSize: 10,
+      color: "#94A3B8",
+      background: "none",
+      border: "1px solid #475569",
+      borderRadius: 4,
+      padding: "2px 7px",
+      cursor: "pointer"
+    }
+  }, "Clear"))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderBottom: "1px solid #E2E8F0",
+      padding: "10px 24px"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 10,
+      fontWeight: 700,
+      color: "#64748B",
+      letterSpacing: 1,
+      textTransform: "uppercase",
+      marginBottom: 7
+    }
+  }, "Key Dates & Events"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 6,
+      flexWrap: "wrap"
+    }
+  }, EVENTS.map(e => /*#__PURE__*/React.createElement("div", {
+    key: e.id,
+    style: {
+      background: e.color + "15",
+      border: `1px solid ${e.color}40`,
+      borderRadius: 6,
+      padding: "4px 9px",
+      fontSize: 11
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontWeight: 600,
+      color: e.color
+    }
+  }, e.label), /*#__PURE__*/React.createElement("span", {
+    style: {
+      color: "#64748B",
+      marginLeft: 5
+    }
+  }, e.date))))), /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "16px 24px"
+    }
+  }, view === "calendar" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 10,
+      border: "1px solid #E2E8F0",
+      overflow: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: "190px repeat(10,1fr)",
+      background: "#F1F5F9",
+      borderBottom: "2px solid #E2E8F0",
+      minWidth: 700
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      padding: "10px 12px",
+      fontSize: 11,
+      fontWeight: 700,
+      color: "#64748B"
+    }
+  }, "CAMPAIGN"), MONTHS.map((m, i) => {
+    const evts = EVENTS.filter(e => e.month === MIDX[i]);
+    return /*#__PURE__*/React.createElement("div", {
+      key: m,
+      style: {
+        padding: "8px 4px",
+        textAlign: "center",
+        borderLeft: "1px solid #E2E8F0"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        fontWeight: 700,
+        color: "#1E293B"
+      }
+    }, m), evts.map(e => /*#__PURE__*/React.createElement("div", {
+      key: e.id,
+      title: `${e.label} — ${e.date}`,
+      style: {
+        marginTop: 2,
+        fontSize: 8,
+        background: e.color,
+        color: "white",
+        borderRadius: 3,
+        padding: "1px 3px",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap"
+      }
+    }, e.label.split(" ").slice(0, 2).join(" "))));
+  })), PILLARS.map(pillar => {
+    const pCamps = filtered.filter(c => c.pillar === pillar.id);
+    if (!pCamps.length) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: pillar.id
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "190px repeat(10,1fr)",
+        background: pillar.bg,
+        borderTop: `3px solid ${pillar.color}`,
+        minWidth: 700
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: "6px 12px",
+        fontSize: 10,
+        fontWeight: 700,
+        color: pillar.color,
+        textTransform: "uppercase",
+        letterSpacing: .5
+      }
+    }, pillar.label), MONTHS.map(m => /*#__PURE__*/React.createElement("div", {
+      key: m,
+      style: {
+        borderLeft: "1px solid " + pillar.border
+      }
+    }))), pCamps.map(camp => {
+      const pct = completionPct(camp);
+      const sc = STATUS_COLORS[camp.status];
+      const built = isBuilt(camp.id);
+      return /*#__PURE__*/React.createElement("div", {
+        key: camp.id,
+        style: {
+          display: "grid",
+          gridTemplateColumns: "190px repeat(10,1fr)",
+          borderTop: "1px solid #F1F5F9",
+          cursor: "pointer",
+          background: selected === camp.id ? campBg(camp) : "white",
+          minWidth: 700
+        },
+        onClick: () => {
+          setSelected(selected === camp.id ? null : camp.id);
+          setView("list");
+          setDetailTab("overview");
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          padding: "8px 12px",
+          borderRight: "1px solid #E2E8F0"
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 12,
+          fontWeight: 600,
+          color: "#0F172A",
+          lineHeight: 1.3
+        }
+      }, built && /*#__PURE__*/React.createElement("span", {
+        style: {
+          display: "inline-block",
+          width: 6,
+          height: 6,
+          borderRadius: "50%",
+          background: "#16A34A",
+          marginRight: 4,
+          verticalAlign: "middle"
+        }
+      }), camp.title), camp.lead && /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          color: "#94A3B8",
+          marginTop: 1
+        }
+      }, camp.lead), /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          gap: 5,
+          marginTop: 4,
+          alignItems: "center"
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 9,
+          padding: "1px 5px",
+          borderRadius: 8,
+          background: sc.bg,
+          color: sc.text,
+          fontWeight: 600
+        }
+      }, sc.label), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 9,
+          color: "#94A3B8"
+        }
+      }, pct, "%")), /*#__PURE__*/React.createElement("div", {
+        style: {
+          marginTop: 3,
+          height: 3,
+          background: "#E2E8F0",
+          borderRadius: 2
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          width: pct + "%",
+          height: "100%",
+          background: campColor(camp),
+          borderRadius: 2
+        }
+      }))), MIDX.map(mi => {
+        const active = camp.months.includes(mi);
+        return /*#__PURE__*/React.createElement("div", {
+          key: mi,
+          style: {
+            borderLeft: "1px solid #F1F5F9",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "4px 2px",
+            background: active ? campBg(camp) : "transparent"
+          }
+        }, active && /*#__PURE__*/React.createElement("div", {
+          style: {
+            width: "88%",
+            height: built ? 20 : 14,
+            background: campColor(camp),
+            borderRadius: 3,
+            opacity: built ? 1 : .75,
+            boxShadow: built ? `0 1px 4px ${campColor(camp)}60` : undefined
+          }
+        }));
+      }));
+    }));
+  })), view === "list" && /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "grid",
+      gridTemplateColumns: selC ? "260px 1fr" : "1fr",
+      gap: 14
+    }
+  }, /*#__PURE__*/React.createElement("div", null, PILLARS.map(pillar => {
+    const pCamps = filtered.filter(c => c.pillar === pillar.id);
+    if (!pCamps.length) return null;
+    return /*#__PURE__*/React.createElement("div", {
+      key: pillar.id,
+      style: {
+        marginBottom: 14
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        fontWeight: 700,
+        color: pillar.color,
+        letterSpacing: 1,
+        textTransform: "uppercase",
+        marginBottom: 5,
+        paddingLeft: 2
+      }
+    }, pillar.label), pCamps.map(c => {
+      const pct = completionPct(c);
+      const sc = STATUS_COLORS[c.status];
+      const built = isBuilt(c.id);
+      return /*#__PURE__*/React.createElement("div", {
+        key: c.id,
+        onClick: () => {
+          setSelected(selected === c.id ? null : c.id);
+          setDetailTab("overview");
+        },
+        style: {
+          background: "white",
+          border: `2px solid ${selected === c.id ? campColor(c) : "#E2E8F0"}`,
+          borderRadius: 8,
+          padding: "10px 12px",
+          marginBottom: 6,
+          cursor: "pointer",
+          position: "relative",
+          overflow: "hidden"
+        }
+      }, built && /*#__PURE__*/React.createElement("div", {
+        style: {
+          position: "absolute",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          width: 4,
+          background: campColor(c),
+          borderRadius: "8px 0 0 8px"
+        }
+      }), /*#__PURE__*/React.createElement("div", {
+        style: {
+          paddingLeft: built ? 8 : 0
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 12,
+          fontWeight: 700,
+          color: "#0F172A"
+        }
+      }, c.title), c.lead && /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          color: "#94A3B8",
+          marginTop: 1
+        }
+      }, "Lead: ", c.lead), built && /*#__PURE__*/React.createElement("div", {
+        style: {
+          fontSize: 10,
+          color: campColor(c),
+          marginTop: 1,
+          fontWeight: 600
+        }
+      }, "\u2726 Fully built"), /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginTop: 5
+        }
+      }, /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 9,
+          padding: "2px 6px",
+          borderRadius: 8,
+          background: sc.bg,
+          color: sc.text,
+          fontWeight: 600
+        }
+      }, sc.label), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 10,
+          color: "#64748B"
+        }
+      }, pct, "%")), /*#__PURE__*/React.createElement("div", {
+        style: {
+          marginTop: 4,
+          height: 3,
+          background: "#E2E8F0",
+          borderRadius: 2
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          width: pct + "%",
+          height: "100%",
+          background: campColor(c),
+          borderRadius: 2
+        }
+      }))));
+    }));
+  })), selC && (() => {
+    const c = selC;
+    const pillar = getPillar(c.pillar);
+    const cColor = c.color || pillar.color;
+    const cBg = c.bg || pillar.bg;
+    const pct = completionPct(c);
+    const sc = STATUS_COLORS[c.status];
+    const doneD = Object.values(c.deliverables).filter(Boolean).length;
+    const built = isBuilt(c.id);
+    const openCount = c.openItems.filter(o => !o.done).length;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        background: "white",
+        borderRadius: 10,
+        border: "1px solid #E2E8F0",
+        overflow: "hidden"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        height: 4,
+        background: cColor
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: "16px 20px",
+        borderBottom: "1px solid #E2E8F0"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        gap: 10,
+        flexWrap: "wrap"
+      }
+    }, /*#__PURE__*/React.createElement("div", null, c.subtitle && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: cColor,
+        fontWeight: 600,
+        textTransform: "uppercase",
+        letterSpacing: 1,
+        marginBottom: 3
+      }
+    }, c.subtitle), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 17,
+        fontWeight: 800,
+        color: "#0F172A"
+      }
+    }, c.title), c.lead && /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        color: "#64748B",
+        marginTop: 2
+      }
+    }, "Lead: ", c.lead)), /*#__PURE__*/React.createElement("select", {
+      value: c.status,
+      onChange: e => updateC(c.id, "status", e.target.value),
+      style: {
+        padding: "5px 8px",
+        borderRadius: 6,
+        border: "1px solid #E2E8F0",
+        fontSize: 11,
+        background: sc.bg,
+        color: sc.text,
+        fontWeight: 600,
+        cursor: "pointer"
+      }
+    }, Object.entries(STATUS_COLORS).map(([k, v]) => /*#__PURE__*/React.createElement("option", {
+      key: k,
+      value: k
+    }, v.label)))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        gap: 4,
+        flexWrap: "wrap",
+        marginTop: 10
+      }
+    }, MONTHS.map((m, i) => {
+      const mi = MIDX[i];
+      const active = c.months.includes(mi);
+      return /*#__PURE__*/React.createElement("button", {
+        key: m,
+        onClick: () => {
+          const u = active ? c.months.filter(x => x !== mi) : [...c.months, mi].sort((a, b) => a - b);
+          updateC(c.id, "months", u);
+        },
+        style: {
+          padding: "3px 8px",
+          borderRadius: 14,
+          fontSize: 11,
+          fontWeight: active ? 700 : 400,
+          border: `1px solid ${active ? cColor : "#E2E8F0"}`,
+          background: active ? cColor : "white",
+          color: active ? "white" : "#94A3B8",
+          cursor: "pointer"
+        }
+      }, m);
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 10,
+        display: "flex",
+        alignItems: "center",
+        gap: 10
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1,
+        height: 5,
+        background: "#E2E8F0",
+        borderRadius: 3
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: pct + "%",
+        height: "100%",
+        background: cColor,
+        borderRadius: 3
+      }
+    })), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 11,
+        fontWeight: 700,
+        color: cColor
+      }
+    }, doneD, "/", DELIVERABLES.length, " \xB7 ", pct, "%")), built && openCount > 0 && /*#__PURE__*/React.createElement("div", {
+      style: {
+        marginTop: 8,
+        padding: "6px 10px",
+        background: "#FEF2F2",
+        border: "1px solid #FECACA",
+        borderRadius: 6,
+        fontSize: 11,
+        color: "#DC2626",
+        fontWeight: 600
+      }
+    }, "\u26A0\uFE0F ", openCount, " outstanding item", openCount > 1 ? "s" : "", " \u2014 see \"Open Items\" tab")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        borderBottom: "1px solid #E2E8F0",
+        background: "#F8FAFC",
+        overflowX: "auto"
+      }
+    }, detailTabs.map(t => /*#__PURE__*/React.createElement("button", {
+      key: t,
+      onClick: () => setDetailTab(t),
+      style: {
+        padding: "10px 14px",
+        border: "none",
+        borderBottom: detailTab === t ? `2px solid ${cColor}` : "2px solid transparent",
+        background: "none",
+        fontSize: 12,
+        fontWeight: detailTab === t ? 700 : 400,
+        color: detailTab === t ? cColor : "#64748B",
+        cursor: "pointer",
+        whiteSpace: "nowrap",
+        textTransform: "capitalize"
+      }
+    }, t, t === "open items" && openCount > 0 ? /*#__PURE__*/React.createElement("span", {
+      style: {
+        marginLeft: 5,
+        padding: "1px 6px",
+        borderRadius: 10,
+        background: "#DC2626",
+        color: "white",
+        fontSize: 9,
+        fontWeight: 700
+      }
+    }, openCount) : null))), /*#__PURE__*/React.createElement("div", {
+      style: {
+        padding: "16px 20px",
+        maxHeight: 520,
+        overflowY: "auto"
+      }
+    }, detailTab === "overview" && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "flex",
+        flexDirection: "column",
+        gap: 12
+      }
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        fontWeight: 700,
+        color: "#64748B",
+        textTransform: "uppercase",
+        letterSpacing: 1,
+        marginBottom: 4
+      }
+    }, "Description"), /*#__PURE__*/React.createElement("textarea", {
+      value: c.description,
+      onChange: e => updateC(c.id, "description", e.target.value),
+      style: {
+        width: "100%",
+        padding: "8px 10px",
+        borderRadius: 6,
+        border: "1px solid #E2E8F0",
+        fontSize: 13,
+        color: "#374151",
+        resize: "vertical",
+        minHeight: 60,
+        boxSizing: "border-box"
+      }
+    })), c.hook && /*#__PURE__*/React.createElement("div", {
+      style: {
+        background: "#FFF7ED",
+        border: "1px solid #FED7AA",
+        borderRadius: 8,
+        padding: "12px 14px"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        fontWeight: 700,
+        color: cColor,
+        textTransform: "uppercase",
+        letterSpacing: 1,
+        marginBottom: 4
+      }
+    }, "Core Hook"), /*#__PURE__*/React.createElement("p", {
+      style: {
+        fontSize: 13,
+        color: "#1E293B",
+        lineHeight: 1.7,
+        margin: 0,
+        fontStyle: "italic"
+      }
+    }, c.hook))), detailTab === "deliverables" && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 6
+      }
+    }, DELIVERABLES.map(d => {
+      const done = c.deliverables[d];
+      return /*#__PURE__*/React.createElement("div", {
+        key: d,
+        onClick: () => toggleDeliverable(c.id, d),
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+          padding: "8px 10px",
+          borderRadius: 7,
+          border: `1px solid ${done ? cColor + "50" : "#E2E8F0"}`,
+          background: done ? cBg : "white",
+          cursor: "pointer"
+        }
+      }, /*#__PURE__*/React.createElement("div", {
+        style: {
+          width: 18,
+          height: 18,
+          borderRadius: 4,
+          border: `2px solid ${done ? cColor : "#CBD5E1"}`,
+          background: done ? cColor : "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0
+        }
+      }, done && /*#__PURE__*/React.createElement("span", {
+        style: {
+          color: "white",
+          fontSize: 10,
+          fontWeight: 700
+        }
+      }, "\u2713")), /*#__PURE__*/React.createElement("span", {
+        style: {
+          fontSize: 12,
+          color: done ? "#374151" : "#64748B",
+          fontWeight: done ? 600 : 400
+        }
+      }, d));
+    })), detailTab === "built" && built && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#64748B",
+        marginBottom: 12
+      }
+    }, "All assets confirmed built and ready for this campaign."), c.builtAssets.map((a, i) => /*#__PURE__*/React.createElement("div", {
+      key: i,
+      style: {
+        display: "flex",
+        gap: 10,
+        padding: "10px 12px",
+        background: "#F0FDF4",
+        border: "1px solid #BBF7D0",
+        borderRadius: 8,
+        marginBottom: 6
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "#16A34A",
+        fontWeight: 700,
+        fontSize: 14,
+        flexShrink: 0
+      }
+    }, "\u2713"), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontSize: 13,
+        fontWeight: 600,
+        color: "#15803D"
+      }
+    }, a)))), detailTab === "open items" && built && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 12,
+        color: "#64748B",
+        marginBottom: 12
+      }
+    }, "Click any item to mark it resolved."), c.openItems.map((o, idx) => /*#__PURE__*/React.createElement("div", {
+      key: idx,
+      onClick: () => toggleOpenItem(c.id, idx),
+      style: {
+        display: "flex",
+        gap: 12,
+        padding: "10px 12px",
+        borderRadius: 8,
+        border: `1px solid ${o.done ? "#BBF7D0" : "#FECACA"}`,
+        background: o.done ? "#F0FDF4" : "#FEF2F2",
+        cursor: "pointer",
+        marginBottom: 7,
+        alignItems: "center"
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        width: 20,
+        height: 20,
+        borderRadius: 5,
+        border: `2px solid ${o.done ? "#16A34A" : "#DC2626"}`,
+        background: o.done ? "#16A34A" : "white",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0
+      }
+    }, o.done && /*#__PURE__*/React.createElement("span", {
+      style: {
+        color: "white",
+        fontSize: 11,
+        fontWeight: 700
+      }
+    }, "\u2713")), /*#__PURE__*/React.createElement("div", {
+      style: {
+        flex: 1
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 13,
+        fontWeight: 600,
+        color: o.done ? "#64748B" : "#DC2626",
+        textDecoration: o.done ? "line-through" : "none"
+      }
+    }, o.task)), /*#__PURE__*/React.createElement("div", {
+      style: {
+        fontSize: 10,
+        color: "#94A3B8",
+        whiteSpace: "nowrap"
+      }
+    }, o.owner))))));
+  })())), showAdd && /*#__PURE__*/React.createElement("div", {
+    style: {
+      position: "fixed",
+      inset: 0,
+      background: "rgba(0,0,0,.5)",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 50
+    },
+    onClick: e => {
+      if (e.target === e.currentTarget) setShowAdd(false);
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      background: "white",
+      borderRadius: 12,
+      padding: 24,
+      width: 440,
+      maxWidth: "95vw",
+      maxHeight: "90vh",
+      overflowY: "auto"
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      fontSize: 16,
+      fontWeight: 700,
+      marginBottom: 16
+    }
+  }, "Add New Campaign"), [["Title *", "title"], ["Lead", "lead"]].map(([l, f]) => /*#__PURE__*/React.createElement("div", {
+    key: f,
+    style: {
+      marginBottom: 12
+    }
+  }, /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#374151",
+      display: "block",
+      marginBottom: 3
+    }
+  }, l), /*#__PURE__*/React.createElement("input", {
+    value: newC[f],
+    onChange: e => setNewC(p => ({
+      ...p,
+      [f]: e.target.value
+    })),
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: "1px solid #E2E8F0",
+      fontSize: 13,
+      boxSizing: "border-box"
+    }
+  }))), /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#374151",
+      display: "block",
+      marginBottom: 3
+    }
+  }, "Pillar *"), /*#__PURE__*/React.createElement("select", {
+    value: newC.pillar,
+    onChange: e => setNewC(p => ({
+      ...p,
+      pillar: e.target.value
+    })),
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: "1px solid #E2E8F0",
+      fontSize: 13,
+      boxSizing: "border-box",
+      marginBottom: 12
+    }
+  }, PILLARS.map(p => /*#__PURE__*/React.createElement("option", {
+    key: p.id,
+    value: p.id
+  }, p.label))), /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#374151",
+      display: "block",
+      marginBottom: 4
+    }
+  }, "Active Months *"), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 4,
+      flexWrap: "wrap",
+      marginBottom: 12
+    }
+  }, MONTHS.map((m, i) => {
+    const mi = MIDX[i];
+    const active = newC.months.includes(mi);
+    const p = getPillar(newC.pillar);
+    return /*#__PURE__*/React.createElement("button", {
+      key: m,
+      onClick: () => setNewC(p => ({
+        ...p,
+        months: active ? p.months.filter(x => x !== mi) : [...p.months, mi].sort((a, b) => a - b)
+      })),
+      style: {
+        padding: "3px 9px",
+        borderRadius: 14,
+        fontSize: 11,
+        fontWeight: active ? 700 : 400,
+        border: `1px solid ${active ? p.color : "#E2E8F0"}`,
+        background: active ? p.color : "white",
+        color: active ? "white" : "#94A3B8",
+        cursor: "pointer"
+      }
+    }, m);
+  })), /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#374151",
+      display: "block",
+      marginBottom: 3
+    }
+  }, "Status"), /*#__PURE__*/React.createElement("select", {
+    value: newC.status,
+    onChange: e => setNewC(p => ({
+      ...p,
+      status: e.target.value
+    })),
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: "1px solid #E2E8F0",
+      fontSize: 13,
+      boxSizing: "border-box",
+      marginBottom: 12
+    }
+  }, Object.entries(STATUS_COLORS).map(([k, v]) => /*#__PURE__*/React.createElement("option", {
+    key: k,
+    value: k
+  }, v.label))), /*#__PURE__*/React.createElement("label", {
+    style: {
+      fontSize: 11,
+      fontWeight: 600,
+      color: "#374151",
+      display: "block",
+      marginBottom: 3
+    }
+  }, "Description"), /*#__PURE__*/React.createElement("textarea", {
+    value: newC.description,
+    onChange: e => setNewC(p => ({
+      ...p,
+      description: e.target.value
+    })),
+    style: {
+      width: "100%",
+      padding: "7px 10px",
+      borderRadius: 6,
+      border: "1px solid #E2E8F0",
+      fontSize: 13,
+      boxSizing: "border-box",
+      marginBottom: 16,
+      minHeight: 60,
+      resize: "vertical"
+    }
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 8,
+      justifyContent: "flex-end"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowAdd(false),
+    style: {
+      padding: "7px 14px",
+      borderRadius: 6,
+      border: "1px solid #E2E8F0",
+      background: "white",
+      cursor: "pointer",
+      fontSize: 13
+    }
+  }, "Cancel"), /*#__PURE__*/React.createElement("button", {
+    onClick: addCampaign,
+    style: {
+      padding: "7px 14px",
+      borderRadius: 6,
+      border: "none",
+      background: "#2563EB",
+      color: "white",
+      cursor: "pointer",
+      fontSize: 13,
+      fontWeight: 600
+    }
+  }, "Add Campaign")))));
+}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(/*#__PURE__*/React.createElement(App, null));
+</script>
+</body>
+</html>
